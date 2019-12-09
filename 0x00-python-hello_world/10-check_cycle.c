@@ -8,18 +8,29 @@
  */
 int check_cycle(listint_t *list)
 {
-	listint_t *fast, *slow; /* pointers to traverse list */
+	listint_t *fast; /* pointer to traverse list */
 
-	slow = list->next;
-	fast = list->next->next;
+	if (list && list->next)
+		fast = list->next;
+	else
+		return (0);
 
-	while (slow && fast) /* traverse list till NULL */
+	while (list && fast) /* traverse list till NULL */
 	{
-		if (slow == fast) /* if pointers meet */
+		if (list == fast) /* if pointers meet */
 			return (1); /* cycle detected */
 
-		slow = slow->next; /* traverse list at diff speeds */
-		fast = fast->next->next;
+		list = list->next; /* traverse list at diff speeds */
+
+		if (fast->next)
+			fast = fast->next;
+		else
+			return (0);
+
+		if (fast->next)
+			fast = fast->next;
+		else
+			return (0);
 	}
 	return (0); /* no cycle detected */
 }
