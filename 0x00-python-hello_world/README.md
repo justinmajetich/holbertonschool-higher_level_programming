@@ -1,5 +1,5 @@
 # 0x00. Python - Hello, World
-This directory contains files created in response to tasks set forth in Holberton student project "0x15. C -  File I/O". These scripts utilize I/O system calls - such as `open`, `write`, `close`, etc. - to perform basic actions on files and text.
+This directory contains files created in response to tasks set forth in Holberton student project "0x00. Python - Hello, World". These scripts demonstrate a basic introduction to the Python programming language.
 
 #### Header File: lists.h
 
