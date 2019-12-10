@@ -51,3 +51,9 @@ This directory contains files created in response to tasks set forth in Holberto
 #### Task 10: [10-check_cycle.c]
 
 * Write a function in C that checks if a singly linked list has a cycle in it
+
+#### Task 11 (Advanced): [100-write.py]
+* Write a Python script that prints exactly 'and that piece of art is useful - Dora Korpar, 2015-10-19', followed by a new line
+
+#### Task 12 (Advanced): [101-compile]
+* Write a script that compiles a Python script file
