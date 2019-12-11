@@ -45,3 +45,6 @@ This directory contains files created in response to tasks set forth in Holberto
 
 #### Task 13: [13-insert_number.c]
 * Write a function in C that inserts a number into a sorted singly linked list
+
+#### Task 14: [100-print_tebahpla.py]
+* Write a program that prints the ASCII alphabet, in reverse order, alternating lowercase and uppercase (z in lowercase and Y in uppercase) , not followed by a new line
