@@ -10,7 +10,7 @@ int check_cycle(listint_t *list);
 int is_palindrome(listint_t **head)
 {
 	listint_t *rev = NULL, *temp = NULL, *rtemp = NULL;
-	size_t list_len = 0;
+	size_t list_len = 0, center;
 
 	if (!head || !(*head))
 		return (1);
@@ -27,9 +27,14 @@ int is_palindrome(listint_t **head)
 		list_len++;
 	}
 	/* compare list to reverse copy */
+	if (list_len % 2 == 0)
+		center = list_len / 2;
+	else
+		center = (list_len / 2) + 1;
+
 	temp = *head;
 	rtemp = rev;
-	while (temp)
+	while (center--)
 	{
 		if (temp->n != rtemp->n)
 		{
