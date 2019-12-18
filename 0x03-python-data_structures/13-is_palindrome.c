@@ -15,8 +15,8 @@ int is_palindrome(listint_t **head)
 	if (!head || !(*head))
 		return (1);
 
-	if (check_cycle(*head)) /* if list has cycle */
-		return (0);
+/*	if (check_cycle(*head)) if list has cycle
+		return (0);*/
 
 	/* create list in reverse to compare against */
 	temp = *head;
