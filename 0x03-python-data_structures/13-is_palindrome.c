@@ -26,10 +26,6 @@ int is_palindrome(listint_t **head)
 		temp = temp->next;
 		list_len++;
 	}
-
-	print_listint(*head);
-	print_listint(rev);
-
 	/* compare list to reverse copy */
 	temp = *head;
 	rtemp = rev;
