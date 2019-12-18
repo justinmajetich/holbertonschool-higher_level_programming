@@ -1,4 +1,5 @@
 #include "lists.h"
+int recursive_check(listint_t **left, listint_t *right);
 /**
  * is_palindrome - check if a singly-linked list palindromic
  * @head: list head
@@ -7,31 +8,35 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *left = NULL, *right = NULL;
-	size_t len = 0, i, loff, roff; /* length and offsets */
-
-	if (!head || !(*head))
+	if (!head || !(*head)) /* if list is empty */
 		return (1);
 
-	/* send right pointer to end of list */
-	left = right = *head;
-	while (right->next)
-	{
-		right = right->next;
-		len++;
-	}
-	if (left->n == right->n)
-	{
-		for (roff = loff = 1; len > (loff + roff); loff++, roff++)
-		{
-			left = left->next;
-			for (right = left, i = 0; i < (len - (loff + roff)); i++)
-				right = right->next;
-			if (left->n != right->n) /* if values don't match */
-				return (0);
-		}
-	}
+	if (recursive_check(head, *head))
+		return (1);
 	else
 		return (0);
-	return (1);
+}
+/**
+ * recursive_check - check if list is palindromic
+ * @left: left pointer
+ * @right: right pointer
+ *
+ * Return: 1 if node values match, 0 if they don't
+ */
+int recursive_check(listint_t **left, listint_t *right)
+{
+	int is_pal = 0;
+
+	if (right) /* recurse until right pointer is NULL */
+		is_pal = recursive_check(left, right->next);
+	else
+		return (1);
+
+	if (is_pal == 1) /* if last values matched */
+		if ((*left)->n == right->n) /* compare current values */
+		{
+			*left = (*left)->next; /* shift left pointer right */
+			return (1);
+		}
+	return (0);
 }
