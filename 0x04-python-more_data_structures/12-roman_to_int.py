@@ -19,5 +19,5 @@ def roman_to_int(roman_string):
                     number += d[letter]
             else:
                 return 0
-            skip = 0
+        skip = 0
     return number
