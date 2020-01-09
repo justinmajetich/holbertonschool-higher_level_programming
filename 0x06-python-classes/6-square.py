@@ -11,8 +11,8 @@ class Square:
             size: size of square
             position: xy position of square
         """
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     def my_print(self):
         """Print square with # characters"""
