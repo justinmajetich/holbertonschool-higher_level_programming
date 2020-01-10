@@ -37,9 +37,12 @@ class Square:
         return self.__size ** 2
 
     def __str__(self):
-        return '{}'.format('\n' * self.__position[1] +
-                           ((' ' * self.__position[0] +
-                            ('#' * self.__size + '\n')) * self.__size))
+        if self.__size is 0:
+            return '\n'
+        else:
+            return '{}'.format('\n' * self.__position[1] +
+                               ((' ' * self.__position[0] +
+                                ('#' * self.__size + '\n')) * self.__size))
 
     @property
     def size(self):
