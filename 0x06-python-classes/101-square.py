@@ -38,7 +38,7 @@ class Square:
 
     def __str__(self):
         if self.__size is 0:
-            return '\n'
+            return ''
         else:
             return '{}'.format('\n' * self.__position[1] +
                                ((' ' * self.__position[0] +
