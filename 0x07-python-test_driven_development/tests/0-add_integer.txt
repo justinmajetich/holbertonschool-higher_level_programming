@@ -1,0 +1,60 @@
+=========================================
+Tests for add_integer in 0-add_integer.py
+=========================================
+
+This is a set of test cases for the module add_integer (adds
+two integers/floats and returns sum).
+
+::
+
+	>>> add_integer = __import__('0-add_integer').add_integer
+
+Type/Value Tests
+==========
+
+add_integer may only receive integers and floats. Additionally, the
+function converts and float arguments to integers before returning sum.
+
+Always returns an integer
+
+::
+
+	>>> add_integer(1, 2)
+	3
+
+	>>> add_integer(2.5, 2.5)
+	4
+
+	>>> add_integer(3.0, 3)
+	6
+
+Optional second argument
+
+::
+
+	>>> add_integer(0,)
+	98
+
+	>>> add_integer(0)
+	98
+
+	>>> add_integer()
+	Traceback (most recent call last):
+	TypeError: add_integer() missing 1 required positional argument: 'a'
+
+
+Incorrect input types raise errors
+
+::
+
+	>>> add_integer('one', 2)
+	Traceback (most recent call last):
+	TypeError: a must be an integer
+
+	>>> add_integer(1, 'two')
+	Traceback (most recent call last):
+	TypeError: b must be an integer
+
+	>>> add_integer(None, None)
+	Traceback (most recent call last):
+	TypeError: a must be an integer

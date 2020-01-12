@@ -1,0 +1,52 @@
+===============================================
+Tests for matrix_divided in 2-matrix_divided.py
+===============================================
+
+This is a set of test cases for the module matrix_divided - a function
+which divides all members of a matrix by a given divisor.
+
+:: Import module
+
+	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+
+Tests
+=====
+
+The divisor and all matrix elements must be either integers or floats,
+otherwise an exception is raised. The divisor may not be zero. Additionally,
+the each row of the matrix must have uniform length. Finally, all products of
+division must be floats rounded to the second decimal.
+
+:: Non-integer/non-float elements
+
+	>>> matrix_divided([[1, 2, 3], [4, 5, 'six']], 2)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+:: Non-integer/float divisor
+
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 'div')
+	Traceback (most recent call last):
+	TypeError: div must be a number
+
+:: Zero divisor
+
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
+	Traceback (most recent call last):
+	ZeroDivisionError: division by zero
+
+:: Non-uniform row length
+
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8]], 2)
+	Traceback (most recent call last):
+	TypeError: Each row of the matrix must have the same size
+
+:: Result rounded to second decimal
+
+	>>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 23)
+	[[0.04, 0.09, 0.13], [0.17, 0.22, 0.26], [0.3, 0.35, 0.39]]
+
+:: Empty matrix
+
+	>>> matrix_divided([[]], 2)
+	[[]]
