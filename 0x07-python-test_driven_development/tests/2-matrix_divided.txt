@@ -49,4 +49,15 @@ division must be floats rounded to the second decimal.
 :: Empty matrix
 
 	>>> matrix_divided([[]], 2)
-	[[]]
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+:: One-dimensional list
+
+	>>> matrix_divided([1, 2], 2)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+	>>> matrix_divided([], 2)
+	Traceback (most recent call last):
+	TypeError: matrix must be a matrix (list of lists) of integers/floats

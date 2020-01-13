@@ -20,12 +20,17 @@ def matrix_divided(matrix, div):
 
     x = len(matrix)  # take number of rows
     ref_row = 0
-    if x is not 0:
+    if x is not 0 and type(matrix[x - 1]) is list and len(matrix[x - 1]) > 0:
         ref_row = len(matrix[x - 1])  # use last row as reference
         n_matrix = [[] for row in range(x)]
     else:
-        return [[]]
+        raise TypeError('matrix must be a matrix \
+(list of lists) of integers/floats')
+
     for row, n_row in zip(matrix, n_matrix):  # check element types
+        if type(row) is not list:  # check that list member is list
+            raise TypeError('matrix must be a matrix \
+(list of lists) of integers/floats')
         if len(row) != ref_row:  # check for uniform rows
             raise TypeError('Each row of the matrix must have the same size')
         for elem in row:
