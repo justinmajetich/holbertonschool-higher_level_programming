@@ -1,0 +1,44 @@
+=======================================
+Tests for print_square in 4-print_square.py
+=======================================
+
+This is a set of test cases for the module print_square - a function
+which prints a square composed of '#'s to the dimension passed to it.
+
+:: Import module
+
+	>>> print_square = __import__('4-print_square').print_square
+
+Tests
+=====
+
+print_square will print a square of the dimensions passed by user. Size passed
+must be an integer and must be greater than or equal to zero; otherwise, an 
+exception is raised.
+
+:: Base behavior
+
+	>>> print_square(3)
+	###
+	###
+	###
+
+:: Size 0
+
+	>>> print_square(0)
+
+:: Non-integer argument
+
+	>>> print_square('three')
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+	>>> print_square(3.0)
+	Traceback (most recent call last):
+	TypeError: size must be an integer
+
+:: Argument < 0
+
+	>>> print_square(-3)
+	Traceback (most recent call last):
+	ValueError: size must be >= 0

@@ -1,0 +1,54 @@
+===================================================
+Tests for text_indentation in 5-text_indentation.py
+===================================================
+
+This is a set of test cases for the module print_square - a function
+which prints a square composed of '#'s to the dimension passed to it.
+
+:: Import module
+
+	>>> text_indentation = __import__('5-text_indentation').text_indentation
+
+Tests
+=====
+
+text_indentation will format and print a line of '.', '?' or ':'-terminated text,
+followed by two newline. Each line with be free of whitespace at either end. The user
+must pass a string argument to the function; otherwise, a TypeError is raised.
+
+:: Base behavior
+
+	>>> text_indentation('To be: or not     to be? That\'s the	 q. will s')
+	To be:
+	<BLANKLINE>
+	or not     to be?
+	<BLANKLINE>
+	That's the 	 q.
+	<BLANKLINE>
+	will s
+
+	>>> text_indentation('There\'s a snake in my boot')
+	There's a snake in my boot
+
+	>>> text_indentation('   .?:	  ')
+	.
+	<BLANKLINE>
+	?
+	<BLANKLINE>
+	:
+	<BLANKLINE>
+
+:: Non-string argument
+
+	>>> text_indentation(666)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+	>>> text_indentation(None)
+	Traceback (most recent call last):
+	TypeError: text must be a string
+
+:: Empty string argument
+
+	>>> text_indentation('')
+

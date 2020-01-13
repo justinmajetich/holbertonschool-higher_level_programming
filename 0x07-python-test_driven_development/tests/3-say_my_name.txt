@@ -1,52 +1,41 @@
-===============================================
-Tests for matrix_divided in 2-matrix_divided.py
-===============================================
+=======================================
+Tests for say_my_name 3-say_my_name.py
+=======================================
 
-This is a set of test cases for the module matrix_divided - a function
-which divides all members of a matrix by a given divisor.
+This is a set of test cases for the module say_my_name - a function
+which prints the first and, optionally, last name passed in by the user.
 
 :: Import module
 
-	>>> matrix_divided = __import__('2-matrix_divided').matrix_divided
+	>>> say_my_name = __import__('3-say_my_name').say_my_name
 
 Tests
 =====
 
-The divisor and all matrix elements must be either integers or floats,
-otherwise an exception is raised. The divisor may not be zero. Additionally,
-the each row of the matrix must have uniform length. Finally, all products of
-division must be floats rounded to the second decimal.
+say_my_name will raise an error if passed a non-string argument. If the module
+is passed only one argument, the second will default to an empty string.
 
-:: Non-integer/non-float elements
+:: Typical behavior
 
-	>>> matrix_divided([[1, 2, 3], [4, 5, 'six']], 2)
+	>>> say_my_name('Justin', 'Majetich')
+	My name is Justin Majetich
+
+:: Non-string arguments
+
+	>>> say_my_name('Spartan', 117)
 	Traceback (most recent call last):
-	TypeError: matrix must be a matrix (list of lists) of integers/floats
+	TypeError: last_name must be a string
 
-:: Non-integer/float divisor
-
-	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 'div')
+	>>> say_my_name(2, 'Chainz')
 	Traceback (most recent call last):
-	TypeError: div must be a number
+	TypeError: first_name must be a string
 
-:: Zero divisor
+:: One mandatory argument
 
-	>>> matrix_divided([[1, 2, 3], [4, 5, 6]], 0)
-	Traceback (most recent call last):
-	ZeroDivisionError: division by zero
+	>>> say_my_name('Yonce')
+	My name is Yonce 
 
-:: Non-uniform row length
+:: Empty arguments
 
-	>>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8]], 2)
-	Traceback (most recent call last):
-	TypeError: Each row of the matrix must have the same size
-
-:: Result rounded to second decimal
-
-	>>> matrix_divided([[1, 2, 3], [4, 5, 6], [7, 8, 9]], 23)
-	[[0.04, 0.09, 0.13], [0.17, 0.22, 0.26], [0.3, 0.35, 0.39]]
-
-:: Empty matrix
-
-	>>> matrix_divided([[]], 2)
-	[[]]
+	>>> say_my_name('')
+	My name is  
