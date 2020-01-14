@@ -15,9 +15,5 @@ This directory contains files created in response to tasks set forth in Holberto
 #### Task 5: [tests/6-max_integer_test.py]
 * In this task, you will write unittests for the function `def max_integer(list=[])`
 
-#### Task 7 (Advanced): []
-* 
-#### Task 8 (Advanced): []
-* 
-#### Task 9 (Advanced): []
-* 
+#### Task 6 (Advanced): [100-matrix_mul.py, tests/100-matrix_mul.txt]
+* Write a function that multiplies 2 matrices
