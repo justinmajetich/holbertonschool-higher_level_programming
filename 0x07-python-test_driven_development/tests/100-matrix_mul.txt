@@ -1,0 +1,55 @@
+==========================================
+Tests for matrix_mul in 100-matrix_mul.py
+==========================================
+
+This is a set of test cases for the module matrix_mul - a function
+which performs matrix multiplication.
+
+:: Import module
+
+	>>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+
+Tests
+=====
+
+Both arguments must be matrices. Row length in each matrix must be uniform
+throughout that given matrix. Matrices may not be empty or have empty rows.
+All matrix elements must be integers or floats. In order to perform matrix
+multiplication, the number of columns in the first matrix must match the
+number of rows in the second.
+
+:: Non-integer/non-float elements
+
+	>>> matrix_mul([[1, 2], [0, 9]], [[4, 5], [6, 'six']])
+	Traceback (most recent call last):
+	TypeError: m_b should contain only integers or floats
+
+	>>> matrix_mul([[1.2, 1.5], [5.6, None]], [[1, 2], [0, 9]])
+	Traceback (most recent call last):
+	TypeError: m_a should contain only integers or floats
+
+:: Non-uniform row length
+
+	>>> matrix_mul([[1, 2, 3], [4, 5]], [[7, 8], [2]])
+	Traceback (most recent call last):
+	TypeError: each row of m_a must be of the same size
+
+:: Empty matrix
+
+	>>> matrix_mul([[]], [[7, 8], [2]])
+	Traceback (most recent call last):
+	ValueError: m_a can't be empty
+
+	>>> matrix_mul([[1, 2], [0, 9]], [])
+	Traceback (most recent call last):
+	ValueError: m_b can't be empty
+
+:: Non-lists
+
+	>>> matrix_mul('666', [[1, 2], [0, 9]])
+	Traceback (most recent call last):
+	TypeError: m_a must be a list
+
+	>>> matrix_mul([[1, 2], [0, 9.4]], {'key': 'value'})
+	Traceback (most recent call last):
+	TypeError: m_b must be a list
