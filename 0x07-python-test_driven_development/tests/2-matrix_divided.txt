@@ -61,3 +61,13 @@ division must be floats rounded to the second decimal.
 	>>> matrix_divided([], 2)
 	Traceback (most recent call last):
 	TypeError: matrix must be a matrix (list of lists) of integers/floats
+
+:: Missing arguments
+
+	>>> matrix_divided([[2],[2]])
+	Traceback (most recent call last):
+	TypeError: matrix_divided() missing 1 required positional argument: 'div'
+
+	>>> matrix_divided()
+	Traceback (most recent call last):
+	TypeError: matrix_divided() missing 2 required positional arguments: 'matrix' and 'div'
