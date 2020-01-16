@@ -1,6 +1,6 @@
-=======================================
+===========================================
 Tests for print_square in 4-print_square.py
-=======================================
+===========================================
 
 This is a set of test cases for the module print_square - a function
 which prints a square composed of '#'s to the dimension passed to it.
@@ -42,3 +42,9 @@ exception is raised.
 	>>> print_square(-3)
 	Traceback (most recent call last):
 	ValueError: size must be >= 0
+
+:: Missing argument
+
+	>>> print_square()
+	Traceback (most recent call last):
+	TypeError: print_square() missing 1 required positional argument: 'size'
