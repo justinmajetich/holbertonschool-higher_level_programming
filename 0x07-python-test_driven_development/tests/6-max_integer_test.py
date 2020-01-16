@@ -29,8 +29,8 @@ class TestMaxInteger(unittest.TestCase):
     def test_one_elem(self):
         """Test if max_integer handles one item list.
         """
-        _list = [0]
-        self.assertEqual(max_integer(_list), 0)
+        _list = [9]
+        self.assertEqual(max_integer(_list), 9)
 
     def test_str(self):
         """Test if max_integer handles str comparison.
@@ -43,6 +43,12 @@ class TestMaxInteger(unittest.TestCase):
         """
         _list = ['a', 'b', 'c']
         self.assertEqual(max_integer(_list), 'c')
+
+    def test_mid_val(self):
+        """Test if max_integer handles middle val as max
+        """
+        _list = [0, 1, 4, 2, 3]
+        self.assertEqual(max_integer(_list), 4)
 
 if __name__ is '__main__':
     unittest.main()
