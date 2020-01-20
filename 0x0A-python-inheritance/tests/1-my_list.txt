@@ -1,0 +1,42 @@
+======================================
+Tests for print_sorted in 1-my_list.py
+======================================
+
+This is a set of test cases for the module print_sorted - a function that
+prints an unsorted list in ascending order without changing the actual order
+of elements in the list.
+
+:: Import module
+
+	>>> MyList = __import__('1-my_list').MyList
+
+Tests
+=====
+
+print_sorted prints a list of ints in ascending order. The original list is
+not changed. An empty list passed as argument will print an empty list. Passing
+a list with non-integer elements will be printed without sorting.
+
+:: Base behavior
+
+	>>> my_list = MyList([3, 5, 1, 7, 2])
+	>>> my_list.print_sorted()
+	[1, 2, 3, 5, 7]
+
+:: Empty list
+
+	>>> my_list = MyList([])
+	>>> my_list.print_sorted()
+	[]
+
+:: Non-integer elements
+	
+	>>> my_list = MyList(['one', 'three', 'two'])
+	>>> my_list.print_sorted()
+	['one', 'three', 'two']
+
+:: Missing argument
+
+	>>> my_list = MyList()
+	>>> my_list.print_sorted()
+	[]
