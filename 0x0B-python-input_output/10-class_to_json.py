@@ -10,4 +10,4 @@ def class_to_json(obj):
     Argument:
         obj: object to serialize
     """
-    return json.loads(json.dumps(obj.__dict__))
+    return obj.__dict__
