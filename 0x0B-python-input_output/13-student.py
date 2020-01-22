@@ -33,4 +33,5 @@ class Student:
     def reload_from_json(self, json):
         """Replace class attributes with those provided in json
         """
-        self.__dict__ = json
+        if len(json) != 0:
+            self.__dict__ = json
