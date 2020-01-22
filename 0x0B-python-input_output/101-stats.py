@@ -1,5 +1,10 @@
 #!/usr/bin/python3
-"""This module defines a program that parses stdin"""
+"""This module defines a program that parses stdin
+
+The line is taken from stdin and split into distinct tokens. The
+tokens or interest are added to a sequence and counted on a need
+to know basis.
+"""
 
 
 import sys
