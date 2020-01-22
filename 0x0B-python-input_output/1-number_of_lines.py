@@ -1,4 +1,4 @@
-#!/usr/bin/python
+#!/usr/bin/python3
 """This module defines a function to count lines read from file"""
 
 
