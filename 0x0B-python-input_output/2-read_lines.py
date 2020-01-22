@@ -12,7 +12,7 @@ def read_lines(filename="", nb_lines=0):
     with open(filename, mode='r', encoding='utf-8') as f:
         for line_count, lines in enumerate(f):
             pass
-        if line_count is 0:
+        if line_count == 0:
             pass
         elif nb_lines <= 0 or nb_lines > (line_count + 1):
             f.seek(0)
