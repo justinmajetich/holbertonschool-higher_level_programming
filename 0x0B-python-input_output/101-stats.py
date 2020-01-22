@@ -1,15 +1,12 @@
 #!/usr/bin/python3
-"""This module defines a program that parses stdin
-"""
+"""This module defines a program that parses stdin"""
 
 
 import sys
-
 codes = ['200', '301', '400', '401',
          '403', '404', '405', '500']
 code_hist = []
 total_size = 0
-
 try:
     while True:
         for cnt, line in enumerate(sys.stdin):
