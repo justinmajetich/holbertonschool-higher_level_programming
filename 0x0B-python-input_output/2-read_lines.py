@@ -8,10 +8,13 @@ def read_lines(filename="", nb_lines=0):
         filename: file to read from
         nb_lines: number of lines to read/print
     """
+    line_count = 0
     with open(filename, mode='r', encoding='utf-8') as f:
         for line_count, lines in enumerate(f):
             pass
-        if nb_lines <= 0 or nb_lines > (line_count + 1):
+        if line_count is 0:
+            pass
+        elif nb_lines <= 0 or nb_lines > (line_count + 1):
             f.seek(0)
             print(f.read(), end='')
         else:
