@@ -10,5 +10,4 @@ def class_to_json(obj):
     Argument:
         obj: object to serialize
     """
-    import json
     return json.loads(json.dumps(obj.__dict__))
