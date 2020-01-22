@@ -6,8 +6,8 @@ tokens or interest are added to a sequence and counted on a need
 to know basis.
 """
 
-
-import sys
+if __name__ == '__main__':
+    import sys
 codes = ['200', '301', '400', '401',
          '403', '404', '405', '500']
 code_hist = []
