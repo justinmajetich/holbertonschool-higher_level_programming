@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+"""This module defines a program that parses logs"""
+
+
 import sys
 codes = ['200', '301', '400', '401',
          '403', '404', '405', '500']
