@@ -35,6 +35,12 @@ class Rectangle(Base):
         """Prints representation of object with '#'s"""
         print((('#' * self.__width) + '\n') * self.__height, end='')
 
+    def __str__(self):
+        """Returns string representation of object"""
+        return '[Rectangle] ({}) {}/{} - {}/{}'.format(self.id, self.__x,
+                                                       self.__y, self.__width,
+                                                       self.__height)
+
     @property
     def width(self):
         """Return value of private variable width"""
