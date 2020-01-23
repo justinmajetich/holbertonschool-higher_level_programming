@@ -24,6 +24,26 @@ class Square(Rectangle):
         """
         super().__init__(size, size, x, y, id)
 
+    def update(self, *args, **kwargs):
+        """Update class attributes"""
+        if len(args) > 0:
+            try:
+                self.id = args[0]
+                self.size = args[1]
+                self.x = args[2]
+                self.y = args[3]
+            except IndexError:
+                pass
+        else:
+            if 'id' in kwargs:
+                self.id = kwargs['id']
+            if 'size' in kwargs:
+                self.size = kwargs['size']
+            if 'x' in kwargs:
+                self.x = kwargs['x']
+            if 'y' in kwargs:
+                self.y = kwargs['y']
+
     def __str__(self):
         """Returns a string representation of object"""
         return '[Square] ({}) {}/{} - {}'.format(self.id, self.x,
