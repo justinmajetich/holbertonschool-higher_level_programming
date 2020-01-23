@@ -33,7 +33,10 @@ class Rectangle(Base):
 
     def display(self):
         """Prints representation of object with '#'s"""
-        print((('#' * self.__width) + '\n') * self.__height, end='')
+        print('\n' * self.__y +
+              ((' ' * self.__x) +
+               ('#' * self.__width) + '\n') *
+              self.__height, end='')
 
     def __str__(self):
         """Returns string representation of object"""
