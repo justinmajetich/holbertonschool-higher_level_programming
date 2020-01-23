@@ -17,8 +17,8 @@ class Rectangle(Base):
         Arguments
             width: width of rectangle
             height: height of rectangle
-            x:
-            y:
+            x: x axis offset
+            y: y axis offset
             id: object id
         """
         super().__init__(id)
