@@ -44,6 +44,10 @@ class Rectangle(Base):
                                                        self.__y, self.__width,
                                                        self.__height)
 
+    def to_dictionary(self):
+        """Returns dictionary representation of object"""
+        return self.__dict__
+
     def update(self, *args, **kwargs):
         """Update attributes"""
         if len(args) > 0:
