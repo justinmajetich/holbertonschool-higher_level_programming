@@ -23,6 +23,7 @@ class Square(Rectangle):
             id: object id
         """
         super().__init__(size, size, x, y, id)
+        self.size = size
 
     def update(self, *args, **kwargs):
         """Update class attributes"""
@@ -44,6 +45,16 @@ class Square(Rectangle):
             if 'y' in kwargs:
                 self.y = kwargs['y']
 
+    def to_dictionary(self):
+        """Return a dict representation of object.
+        Dict keys are stripped of name mangling and
+        values copied to new dictionary.
+        """
+        clean = {}
+        for key, val in self.__dict__.items():
+            clean[key.split('_')[-1]] = val
+        return clean
+
     def __str__(self):
         """Returns a string representation of object"""
         return '[Square] ({}) {}/{} - {}'.format(self.id, self.x,
@@ -52,10 +63,13 @@ class Square(Rectangle):
     @property
     def size(self):
         """Retrieve the value of size variable"""
-        return self.width
+        return self.__size
 
     @size.setter
     def size(self, value):
         """Set the value of size variable"""
-        self.width = value
-        self.height = value
+        if type(value) is not int:
+            raise TypeError('width must be an integer')
+        if value <= 0:
+            raise ValueError('width must be > 0')
+        self.__size = value
