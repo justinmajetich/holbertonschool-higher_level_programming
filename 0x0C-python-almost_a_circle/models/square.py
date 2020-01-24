@@ -52,13 +52,15 @@ class Square(Rectangle):
         """
         clean = {}
         for key, val in self.__dict__.items():
-            clean[key.split('_')[-1]] = val
+            clean_key = key.split('_')[-1]
+            if clean_key in ['id', 'size', 'x', 'y']:
+                clean[clean_key] = val
         return clean
 
     def __str__(self):
         """Returns a string representation of object"""
         return '[Square] ({}) {}/{} - {}'.format(self.id, self.x,
-                                                 self.y, self.width)
+                                                 self.y, self.size)
 
     @property
     def size(self):
