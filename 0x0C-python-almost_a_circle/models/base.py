@@ -63,6 +63,20 @@ class Base:
         new_instance.update(**dictionary)
         return new_instance
 
+    @classmethod
+    def load_from_file(cls):
+        """Returns a list of instances created from
+        loaded JSON file.
+        """
+        try:
+            with open(cls.__name__ + '.json', mode='r', encoding='utf-8') as f:
+                obj_list = cls.from_json_string(f.read())
+            for i, obj in enumerate(obj_list):
+                obj_list[i] = cls.create(**obj)
+        except IOError:
+            return []
+        return obj_list
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """Return JSON string representation or argument
