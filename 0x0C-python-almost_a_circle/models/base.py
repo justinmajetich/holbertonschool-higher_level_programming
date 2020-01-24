@@ -51,6 +51,18 @@ class Base:
         with open((cls.__name__ + '.json'), mode='w', encoding='utf-8') as f:
             f.write(cls.to_json_string(dict_list))
 
+    @classmethod
+    def create(cls, **dictionary):
+        """Returns an instance of a class with
+        attributes already initialized.
+
+        Argument:
+            dictionary: a dictionary representation of an object
+        """
+        new_instance = cls(1, 1)
+        new_instance.update(**dictionary)
+        return new_instance
+
     @staticmethod
     def to_json_string(list_dictionaries):
         """Return JSON string representation or argument
@@ -58,6 +70,17 @@ class Base:
         Arguments
             list_dictionaries: a list of dictionaries
         """
-        if not list_dictionaries or type(list_dictionaries) is not list:
+        if not list_dictionaries:
             return '[]'
         return json.dumps(list_dictionaries)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """Return Python object from JSON string.
+
+        Argument:
+            json_string: string representation of list of dicts
+        """
+        if not json_string:
+            return []
+        return json.loads(json_string)
