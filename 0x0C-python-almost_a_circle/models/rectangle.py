@@ -4,6 +4,7 @@ from Base class.
 """
 
 
+import json
 from models.base import Base
 
 
@@ -46,7 +47,10 @@ class Rectangle(Base):
 
     def to_dictionary(self):
         """Returns dictionary representation of object"""
-        return self.__dict__
+        clean = {}
+        for key, val in self.__dict__.items():
+            clean[key.split('_')[-1]] = val
+        return clean
 
     def update(self, *args, **kwargs):
         """Update attributes"""
