@@ -59,7 +59,10 @@ class Base:
         Argument:
             dictionary: a dictionary representation of an object
         """
-        new_instance = cls(1, 1)
+        if cls.__name__ is 'Square':
+            new_instance = cls(1)
+        if cls.__name__ is 'Rectangle':
+            new_instance = cls(1, 1)
         new_instance.update(**dictionary)
         return new_instance
 
