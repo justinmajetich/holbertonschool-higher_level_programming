@@ -53,7 +53,9 @@ class Square(Rectangle):
         clean = {}
         for key, val in self.__dict__.items():
             clean_key = key.split('_')[-1]
-            if clean_key in ['id', 'size', 'x', 'y']:
+            if clean_key == 'width':
+                clean['size'] = val
+            if clean_key in ['id', 'x', 'y']:
                 clean[clean_key] = val
         return clean
 
@@ -73,8 +75,8 @@ class Square(Rectangle):
         """Set the value of size variable"""
         self.width = value
         self.height = value
-        if type(value) is not int:
-            raise TypeError('width must be an integer')
-        if value <= 0:
-            raise ValueError('width must be > 0')
-        self.__size = value
+        # if type(value) is not int:
+        #     raise TypeError('width must be an integer')
+        # if value <= 0:
+        #     raise ValueError('width must be > 0')
+        # self.__size = value
