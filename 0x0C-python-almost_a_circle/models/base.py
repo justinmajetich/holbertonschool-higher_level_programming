@@ -4,6 +4,7 @@
 
 
 import json
+import csv
 
 
 class Base:
@@ -76,6 +77,41 @@ class Base:
                 obj_list = cls.from_json_string(f.read())
             for i, obj in enumerate(obj_list):
                 obj_list[i] = cls.create(**obj)
+        except IOError:
+            return []
+        return obj_list
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Serialize objects to csv file"""
+        if not list_objs:  # if empty/None, save empty list
+            list_objs = []
+
+        dict_list = []
+        for obj in list_objs:  # convert objs to dicts
+            dict_list.append(obj.to_dictionary())
+
+        keys = [[key for key in d.keys()] for d in dict_list]
+
+        with open((cls.__name__ + '.csv'), mode='w',
+                  newline='', encoding='utf-8') as f:
+            dwriter = csv.DictWriter(f, fieldnames=keys[0])
+            dwriter.writeheader()
+            dwriter.writerows(dict_list)
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """Deserialize objects from csv file"""
+        try:
+            obj_list = []
+            dictionary = {}
+            with open(cls.__name__ + '.csv', mode='r', encoding='utf-8') as f:
+                reader = csv.reader(f)
+                keys = reader.__next__()
+                for values in reader:
+                    for key, value in zip(keys, values):
+                        dictionary[key] = int(value)
+                    obj_list.append(cls.create(**dictionary))
         except IOError:
             return []
         return obj_list
