@@ -2,10 +2,10 @@
 """ Select states starting with N from database """
 
 
-from sys import argv
-import MySQLdb
-
 if __name__ == '__main__':
+
+    from sys import argv
+    import MySQLdb
 
     db_user = argv[1]
     db_passwd = argv[2]
