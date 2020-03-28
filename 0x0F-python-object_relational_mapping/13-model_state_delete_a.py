@@ -18,12 +18,7 @@ if __name__ == '__main__':
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    id_list = []
-    for row in session.query(State):
-        if 'a' in row.name:
-            id_list.append(row.id)
-
-    for id in id_list:
-        session.query(State).filter(State.id == id).delete()
+    session.query(State).filter(State.name.like('%a%')).\
+        delete(synchronize_session=False)
 
     session.commit()
