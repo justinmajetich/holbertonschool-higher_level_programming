@@ -6,6 +6,7 @@ from sqlalchemy.orm import relationship
 
 Base = declarative_base()
 
+
 class State(Base):
     """ Define a class State to be linked to db table """
     __tablename__ = 'states'
@@ -16,4 +17,4 @@ class State(Base):
 
     name = Column(String(128), nullable=False)
 
-    cities = relationship('City', cascade='all, delete', backref='states')
+    cities = relationship('City', backref='state')
