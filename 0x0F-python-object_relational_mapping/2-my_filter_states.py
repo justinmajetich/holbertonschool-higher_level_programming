@@ -21,7 +21,8 @@ if __name__ == '__main__':
     cursor = database.cursor()
 
     cursor.execute('SELECT id, name FROM states\
-                   ORDER BY states.id ASC')
+                   WHERE states.name = \'{}\'\
+                   ORDER BY states.id ASC'.format(search))
 
     for row in cursor.fetchall():
         if row[1] == search:
