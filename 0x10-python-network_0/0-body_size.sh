@@ -1,4 +1,3 @@
-#!/usr/bin/env bash
+#!/bin/bash
 # Make request and display response
-url="$1"
-curl -sI "$url" | grep "Content-Length" | cut -d ' ' -f 2
+curl -sI "$1" | grep "Content-Length" | cut -d ' ' -f 2
