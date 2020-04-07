@@ -15,7 +15,7 @@ def find_peak(list_of_integers):
     if size is 1:
         return loi[0]
 
-    mid = int((size - 1) / 2)
+    return recurse(loi, 0, size - 1)
 
 
 def recurse(loi, left, right):
