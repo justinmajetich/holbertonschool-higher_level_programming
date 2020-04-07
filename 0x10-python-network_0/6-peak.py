@@ -23,12 +23,15 @@ def recurse(loi, left, right):
     """
     mid = int((left + right) / 2)
 
-    # recurse left
-    if (mid - 1 >= 0) and loi[mid - 1] > loi[mid]:
-        return recurse(loi, left, mid - 1)
-    # recurse right
-    elif (mid + 1 <= len(loi)) and loi[mid + 1] > loi[mid]:
-        return recurse(loi, mid + 1, right)
-    # peak found
-    else:
+    if left > right:
         return loi[mid]
+
+    if (mid == 0 or loi[mid] > loi[mid - 1])\
+       and (mid == len(loi) - 1 or loi[mid] > loi[mid + 1]):
+        return loi[mid]
+
+    # recurse left
+    elif (mid > 0) and loi[mid - 1] > loi[mid]:
+        return recurse(loi, left, mid - 1)
+    else:  # recurse right
+        return recurse(loi, mid + 1, right)
