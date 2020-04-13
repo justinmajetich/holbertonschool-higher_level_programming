@@ -22,7 +22,7 @@ if __name__ == '__main__':
 
     try:
         r = r.json()
-        print(type(r))
+        
         if not r:
             print('No result')
         else:
