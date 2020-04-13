@@ -16,10 +16,6 @@ if __name__ == '__main__':
 
     r = requests.post(url, data={'q': q})
 
-#    if r.status_code == 204:
-#        print('No result')
-#        return
-
     try:
         r = r.json()
 
@@ -28,5 +24,5 @@ if __name__ == '__main__':
         else:
             print('[{}] {}'.format(r.get('id'), r.get('name')))
 
-    except ValueError:
+    except:
         print('Not a valid JSON')
