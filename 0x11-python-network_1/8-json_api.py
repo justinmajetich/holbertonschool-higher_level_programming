@@ -16,9 +16,13 @@ if __name__ == '__main__':
 
     r = requests.post(url, data={'q': q})
 
+    if r.status_code == 204:
+        print('No result')
+        return
+
     try:
         r = r.json()
-
+        print(type(r))
         if not r:
             print('No result')
         else:
