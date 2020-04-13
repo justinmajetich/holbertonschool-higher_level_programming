@@ -10,7 +10,7 @@ if __name__ == '__main__':
     url = 'http://0.0.0.0:5000/search_user'
 
     if len(argv) > 1:
-        q = argv
+        q = argv[1]
     else:
         q = ''
 
@@ -24,5 +24,5 @@ if __name__ == '__main__':
         else:
             print('[{}] {}'.format(r.get('id'), r.get('name')))
 
-    except:
+    except ValueError:
         print('Not a valid JSON')
