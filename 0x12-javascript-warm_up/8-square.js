@@ -1,8 +1,9 @@
 #!/usr/bin/node
 // Basic print with Javascript
 
-if (process.argv.length >= 3) {
-  const size = process.argv[2];
+const size = process.argv[2];
+
+if (size && parseInt(size)) {
   let i = 0;
   while (i < size) {
     const row = 'X'.repeat(size);
