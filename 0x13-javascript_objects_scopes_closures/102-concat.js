@@ -8,7 +8,7 @@ const content2 = fs.readFileSync(file2);
 
 const contentNew = content1 + content2;
 
-fs.writeFile('fileC', contentNew, 'utf-8', (err) => {
+fs.writeFile(process.argv[4], contentNew, 'utf-8', (err) => {
   if (err) {
     throw err;
   }
