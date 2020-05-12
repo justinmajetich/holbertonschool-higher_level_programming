@@ -8,9 +8,15 @@ request(url, async (error, response, body) => {
   const result = JSON.parse(body);
 
   for (const charURL of result.characters) {
-    await request(charURL, (err, r, body) => {
-      if (err) { console.log(err); }
-      console.log(JSON.parse(body).name);
+    await new Promise((resolve, reject) => {
+      request(charURL, (err, r, body) => {
+        if (err) {
+          reject(err);
+        } else {
+          console.log(JSON.parse(body).name);
+          resolve();
+        }
+      });
     });
   }
 });
